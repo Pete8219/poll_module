@@ -6,9 +6,11 @@ const app = express()
 
 app.use('/', router)
 app.use(express.static('views'))
+app.use(express.static('adminviews'))
 
 
 app.set('views', './views/')
+
 app.set('view engine', 'ejs')
 
 

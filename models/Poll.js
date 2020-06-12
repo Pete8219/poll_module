@@ -7,8 +7,13 @@ let Poll = function(data) {
   this.data = data
 }
 
-Poll.prototype.create = function(req, res) {
-  pollsCollection.insertOne(this.data)
+Poll.prototype.create = function() {
+  return new Promise((resolve, reject) => {
+    pollsCollection
+      .insertOne(this.data)
+      .then(() => resolve())
+      .catch(() => reject("error"))
+  })
 }
 
 module.exports = Poll

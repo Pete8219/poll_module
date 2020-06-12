@@ -1,20 +1,17 @@
-const express = require('express')
-const router = require('./router')
-
+const express = require("express")
+const bodyParser = require("body-parser")
+const router = require("./router")
 
 const app = express()
 
-app.use('/', router)
-app.use(express.static('views'))
-app.use(express.static('adminviews'))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
+app.use("/", router)
+app.use(express.static("views"))
 
-app.set('views', './views/')
+app.set("views", "./views/")
 
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs")
 
-
-app.listen(3000, function() {
-    console.log('Example app listening port 3000')
-})
-
+module.exports = app

@@ -1,12 +1,28 @@
-const express = require('express')
-const router = express.Router();
+const express = require("express")
+const router = express.Router()
+const PollsController = require("./controllers/PollsController")
 
-router.get('/', function(req, res) {
-    res.render('index')
+router.get("/", function(req, res) {
+  res.render("index")
 })
 
-router.get('/admin', function(req, res) {
-    res.render('admin')
+router.get("/admin", function(req, res) {
+  res.render("admin/admin")
 })
 
-module.exports = router 
+//маршруты связанны с создание и редактированием опросов
+
+router.get("/admin/polls", function(req, res) {
+  res.render("admin/polls")
+})
+
+router.get("/admin/polls-list", function(req, res) {
+  res.render("admin/create-poll")
+})
+
+router.get("/create-poll", function(req, res) {
+  res.render("admin/create-poll")
+})
+router.post("/create-poll", PollsController.create)
+
+module.exports = router

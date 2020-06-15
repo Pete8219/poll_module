@@ -1,5 +1,6 @@
 const express = require("express")
-const bodyParser = require("body-parser")
+const path = require("path")
+
 const router = require("./router")
 
 const app = express()
@@ -9,6 +10,7 @@ app.use(express.json())
 
 app.use("/", router)
 app.use(express.static("views"))
+app.use(express.static(path.join(__dirname, "public")))
 
 app.set("views", "./views/")
 

@@ -1,0 +1,51 @@
+<%-include ('../includes/header') %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+<div class="container" style="width:80%; padding-top:40px;">
+  <h2>Создание нового вопроса</h2>
+  <form action="/admin/create-answer" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label>Вопрос</label>
+        <input class="form-control" name="question" />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputType">Тип</label>
+        <select id="inputType" class="form-control" name="select">
+          <option selected>Выберите тип ответов...</option>
+          <option value="checkbox">Несколько</option>
+          <option value="radio">Один из</option>
+          <option value="dropdown">Список</option>
+          <option value="text">Свой вариант</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <div class="form-row answer-field">
+          <div class="form-group col-md-8">
+            <label>Ответ</label>
+            <input class="form-control" id="answer" name="answer" />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputWeight">Вес ответа</label>
+            <input class="form-control" name="weight" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label></label>
+        <button type="button" class="btn btn-primary" id="addAnswer" style="float:right;margin-top:30px">Добавить ответ</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Сохранить</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/add-answer.js"></script>
+<%-include ('../includes/footer') %>
